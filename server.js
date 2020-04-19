@@ -14,13 +14,13 @@ app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
-
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "./public/index.html"));
 });
-
 
 // Starts the server to begin listening
 // =============================================================
