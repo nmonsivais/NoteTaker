@@ -8,9 +8,10 @@ module.exports = function (app) {
 
     app.post("/api/notes", function (req, res) {
 
-        req.body.id = dbJSON.length + 1;
-        dbJSON.push(req.body);
-        console.log(dbJSON);
+        var note = (req.body);
+        note.id = dbJSON.length + 1;
+        dbJSON.push(note);
+        // console.log(dbJSON);
         fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(dbJSON), function (err) {
             if (err) {
                 return console.log(err);
@@ -20,42 +21,24 @@ module.exports = function (app) {
     })
 
     app.delete("/api/notes/:id", function (req, res) {
-        console.log(req.params.id);
-        //use a for loop to grab ID to delete it and replace what needs to be there.
-        //Loop through all posts.
-        //Find ID that needs deleting
-        //Remove the note with the given ID
-        //Rewrite the notes in db.JSON
+        // dbJSON.filter doesn't know
+        var noteKeep = dbJSON.filter(function (note) {
+            return note.id !== req.params.id
+        });
+        //console.log req.params.id everything that I think is happening is actually happening.
 
+        fs.writeFileSync(__dirname + "/../db/db.json", JSON.stringify(noteKeep), function (err) {
+            if (err) {
+                return console.log(err);
+            }
+        })
+        return res.json(dbJSON)
         res.json(dbJSON);
     })
 }
 
+    //Find ID that needs deleting
+    //Remove the note with the given ID
+    //Rewrite the notes in db.JSON
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var path = require("path");
-// var fs = require("fs");
-// // var dbJSON = require("dbJSON");
-// module.exports = function (app) {
-//     app.get("/api/notes", (req, res) => {
-//         return res.json(dbJSON);
-//     });
-//     // app.post("/api/notes", (req, res) => {
-//     //     return res.json(dbJSON);
-//     // });
-//     // app.delete
-// };
+    // res.json(dbJSON);
