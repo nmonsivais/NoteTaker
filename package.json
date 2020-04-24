@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "inquirer": "^7.1.0"
+    "inquirer": "^7.1.0",
+    "util": "^0.12.2",
+    "uuid": "^7.0.3"
   }
 }

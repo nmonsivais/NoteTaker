@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<img src="Assets\images\noemonsivaisprofilepic.png" width="100">
+<img src="public\assets\images\noemonsivaisprofilepic.png" width="100">
 
 # Note Taker App
 This app will allow users to type notes and save them.  They can access all saved notes at any time and delete saved notes as well.
@@ -13,7 +13,7 @@ This app will allow users to type notes and save them.  They can access all save
 HTML, ES6, Node.JS, GitHub, Heroku
 
 # Heroku Link
-[Heroku Live App] (https://notetakertro.herokuapp.com/notes)
+[Heroku Live App](https://notetakertro.herokuapp.com/notes)
 
 
 # Installation Instructions
